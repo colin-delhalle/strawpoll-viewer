@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es6",
+    "outDir": "extension",
+    "rootDir": "src",
+    "lib": [ "es6", "dom" ],
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/web-ext-types"
+    ],
+    "sourceMap": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

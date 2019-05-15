@@ -1,0 +1,27 @@
+{
+  "name": "strawpoll-viewer",
+  "version": "1.0.0",
+  "description": "Web extension to display strawpoll results in the page by right clicking it. Currently supports strawpoll.com and strawpoll.me.",
+  "homepage": "https://github.com/colin-delhalle/strawpoll-viewer/",
+  "bugs": "https://github.com/colin-delhalle/strawpoll-viewer/issues",
+  "author": {
+    "name": "Colin Delhalle"
+  },
+  "devDependencies": {
+    "@types/dompurify": "0.0.32",
+    "@types/node": "^8.0.14",
+    "awesome-typescript-loader": "^5.2.1",
+    "copy-webpack-plugin": "^5.0.3",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.4.5",
+    "web-ext-types": "^3.1.0"
+  },
+  "dependencies": {
+    "dompurify": "^1.0.10",
+    "izitoast": "^1.4.0"
+  },
+  "scripts": {
+    "build": "webpack --mode=development --display-error-details --progress --colors -w",
+    "start": "cd extension && web-ext run -u https://github.com/colin-delhalle/strawpoll-viewer-firefox --bc"
+  }
+}
