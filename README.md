@@ -4,6 +4,13 @@ Add an option in the browser contextual menu to view poll result sorted by most 
 
 ![capa](https://i.imgur.com/TlBXEFS.png)
 
+---
+
+Firefox extension: https://addons.mozilla.org/en-US/firefox/addon/strawpoll-viewer/  
+Chrome extension: https://chrome.google.com/webstore/detail/straw-poll-viewer/iheaafamohnndcdpmjchimmplabgmckk
+
+---
+
 Test links:
 
 - [strawpoll.me poll](https://www.strawpoll.me/1)
