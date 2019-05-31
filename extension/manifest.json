@@ -2,8 +2,9 @@
   "manifest_version": 2,
 
   "name": "Straw Poll Viewer",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Display strawpoll result by right-clicking them. Currently supports strawpoll.me and strawpoll.com.",
+  "author": "Colin Delhalle",
   "developer": {
     "name": "Colin Delhalle",
     "url": "https://github.com/colin-delhalle/strawpoll-viewer-firefox"
@@ -19,5 +20,5 @@
     "scripts": [ "background.js" ]
   },
 
-  "permissions": [ "menus", "activeTab", "https://strawpoll.com/*" ]
+  "permissions": [ "contextMenus", "activeTab", "https://strawpoll.com/*" ]
 }

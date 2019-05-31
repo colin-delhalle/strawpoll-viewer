@@ -1,11 +1,12 @@
-﻿import PollItem from './pollItem';
+﻿import { browser } from 'webextension-polyfill-ts';
+import PollItem from './pollItem';
 import PollData from './pollData';
 import MessageType from './messageType';
 import PollHandler from './pollHandlers/pollHandler';
 import StrawpollMeHandler from './pollHandlers/strawpollMeHandler';
 import StrawpollComHandler from './pollHandlers/strawpollComHandler';
 
-browser.menus.create({
+browser.contextMenus.create({
     id: 'strawpollviewer',
     contexts: ['link'],
     targetUrlPatterns: ['*://*.strawpoll.me/*', '*://*.strawpoll.com/*'],
@@ -47,7 +48,6 @@ async function displayPollResult(info: browser.menus.OnClickData, tab: browser.t
     try {
         pollData = await pollDataPromise;
         pollItems = pollHandler.toPollItems(pollData);
-
     } catch (error) {
         console.error(`${error.message}`);
         await browser.tabs.sendMessage(tab.id, { type: MessageType.ERROR, pollLink: info.linkUrl });

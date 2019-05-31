@@ -1,4 +1,5 @@
-﻿import { sanitize } from 'dompurify';
+﻿import { browser } from 'webextension-polyfill-ts';
+import { sanitize } from 'dompurify';
 import iziToast, { IziToastSettings } from 'izitoast';
 import PollItem from '../../pollItem';
 import MessageType from '../../messageType';
