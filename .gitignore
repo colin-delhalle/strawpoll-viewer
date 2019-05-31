@@ -4,3 +4,5 @@ extension/**/*.js
 extension/**/*.map
 extension/**/*.css
 extension/**/*.zip
+extension/web-ext-artifacts
+sources.zip
