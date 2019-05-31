@@ -12,4 +12,5 @@ Test links:
 ---
 Developed with TypeScript using:
 - types from https://github.com/kelseasy/web-ext-types
+- types from https://www.npmjs.com/package/webextension-polyfill-ts
 - iziToast library to display the result https://github.com/marcelodolza/iziToast
