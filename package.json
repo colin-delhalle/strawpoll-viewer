@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "webpack --mode=development --display-error-details --progress --colors -w",
-    "start": "cd extension && web-ext run -u https://github.com/colin-delhalle/strawpoll-viewer-firefox --bc",
+    "start": "cd extension && web-ext run -u https://github.com/colin-delhalle/strawpoll-viewer --bc",
     "full-dev": "npm run build && npm run start",
     "package": "webpack --mode=production && cd extension && web-ext build --ignore-files \"**/*.map\" --overwrite-dest",
     "clean": "rimraf ./extension/web-ext-artifacts ./extension/**/*.js ./extension/**/*.css ./extension/**/*.map",
