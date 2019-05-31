@@ -11,10 +11,14 @@
     "@types/dompurify": "0.0.32",
     "@types/node": "^8.0.14",
     "awesome-typescript-loader": "^5.2.1",
+    "bestzip": "^2.1.4",
     "copy-webpack-plugin": "^5.0.3",
+    "node-7z": "^1.1.0",
+    "rimraf": "^2.6.3",
     "source-map-loader": "^0.2.4",
     "typescript": "^3.4.5",
-    "web-ext-types": "^3.1.0"
+    "web-ext-types": "^3.1.0",
+    "webextension-polyfill-ts": "^0.9.0"
   },
   "dependencies": {
     "dompurify": "^1.0.10",
@@ -22,6 +26,11 @@
   },
   "scripts": {
     "build": "webpack --mode=development --display-error-details --progress --colors -w",
-    "start": "cd extension && web-ext run -u https://github.com/colin-delhalle/strawpoll-viewer-firefox --bc"
+    "start": "cd extension && web-ext run -u https://github.com/colin-delhalle/strawpoll-viewer-firefox --bc",
+    "full-dev": "npm run build && npm run start",
+    "package": "webpack --mode=production && cd extension && web-ext build --ignore-files \"**/*.map\" --overwrite-dest",
+    "clean": "rimraf ./extension/web-ext-artifacts ./extension/**/*.js ./extension/**/*.css ./extension/**/*.map",
+    "zip-sources": "npm run clean && rimraf sources.zip && bestzip sources.zip readme-testers.txt tsconfig.json webpack.config.js package.json package-lock.json src/ extension/",
+    "publish": "npm run package && npm run zip-sources"
   }
 }
