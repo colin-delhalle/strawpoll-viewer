@@ -1,6 +1,9 @@
 npm install
-npm build
-npm start
+npm run package
 
-npm build compile .ts files from ./src to .js files in ./extension
-npm start use web-ext to launch firefox in a test page.
+Will compile all ts files to js, create the zip file of the extension and put it to ./extension/web-ext-artifacts/
+
+---
+
+npm run start
+Will start Firefox on the test page with the plugin installed
