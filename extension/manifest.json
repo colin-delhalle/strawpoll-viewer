@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Straw Poll Viewer",
-  "version": "1.1",
+  "version": "1.1.1",
   "description": "Display strawpoll result by right-clicking them. Currently supports strawpoll.me and strawpoll.com.",
   "author": "Colin Delhalle",
   "developer": {
