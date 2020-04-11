@@ -9,22 +9,23 @@
   },
   "devDependencies": {
     "@types/dompurify": "0.0.32",
-    "@types/node": "^8.0.14",
+    "@types/node": "^8.10.59",
     "awesome-typescript-loader": "^5.2.1",
-    "bestzip": "^2.1.4",
-    "copy-webpack-plugin": "^5.0.3",
-    "node-7z": "^1.1.0",
-    "rimraf": "^2.6.3",
+    "bestzip": "^2.1.5",
+    "copy-webpack-plugin": "^5.1.1",
+    "node-7z": "^1.1.1",
+    "rimraf": "^2.7.1",
     "source-map-loader": "^0.2.4",
-    "typescript": "^3.4.5",
-    "web-ext": "^3.2.0",
-    "web-ext-types": "^3.1.0",
-    "webextension-polyfill-ts": "^0.9.0",
-    "webpack": "^4.41.1",
-    "webpack-cli": "^3.3.9"
+    "typescript": "^3.8.3",
+    "web-ext": "^3.2.1",
+    "web-ext-types": "^3.2.1",
+    "webextension-polyfill-ts": "^0.9.1",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "minimist": "^1.2.3"
   },
   "dependencies": {
-    "dompurify": "^1.0.10",
+    "dompurify": "^2.0.8",
     "izitoast": "^1.4.0"
   },
   "scripts": {
