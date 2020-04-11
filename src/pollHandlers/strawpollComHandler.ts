@@ -4,7 +4,7 @@ import PollItem from '../pollItem';
 import PollData from '../pollData';
 
 export default class StrawpollComHandler implements PollHandler {
-    private _baseUrl = 'https://strawpoll.com/results?pid=';
+    private _baseUrl = 'https://strawpoll.com/api/poll/';
 
     getPollData(link: string): Promise<PollData> {
         const matches = new RegExp('.*/([a-zA-Z0-9]*)').exec(link);
@@ -17,7 +17,8 @@ export default class StrawpollComHandler implements PollHandler {
     }
 
     toPollItems(data: PollData): PollItem[] {
-        const pollItems: PollItem[] = data.data;
+        const results: any[] = data.poll_answers;
+        const pollItems: PollItem[] = results.map(x => new PollItem(x.answer, x.votes));
         pollItems.sort((a, b) => b.votes - a.votes);
 
         return pollItems;
