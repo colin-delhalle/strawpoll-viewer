@@ -21,12 +21,13 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - run: echo $GITHUB_REF
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
       - run: npx webpack --mode=production
-      - run: echo # here update manifest.json
+      - run: echo 'update manifest.json' # here update manifest.json
       - run: npx web-ext build
       - uses: actions/upload-artifact@2.1.0
         with:
@@ -35,8 +36,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: 'colin-delhalle/webextension-builder'
-          path: RELEASE_REL_PATH
-      - 
-      - run: mkdir strawpoll-viewer/releases/1.0.0
-        working-directory: RELEASE_REL_PATH
-      - run: cp -R GITHUB_WORKSPACE/BUILD_REL_PATH/extension GITHUB_WORKSPACE/RELEASE_REL_PATH/releases/1.0.0
+          path: $RELEASE_REL_PATH
+      - run: mkdir strawpoll-viewer/releases/$GITHUB_REF
+        working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
+      - run: cp -R $GITHUB_WORKSPACE/$BUILD_REL_PATH/extension $GITHUB_WORKSPACE/$RELEASE_REL_PATH/releases/$GITHUB_REF
+      - run: git add .
+        working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
+      - run: git commit -m "Source and zip file for relase $GITHUB_REF"
+        working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
+      - run: git push
+        working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
