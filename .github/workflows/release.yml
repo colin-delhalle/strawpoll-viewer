@@ -21,7 +21,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - run: echo $GITHUB_REF
+      - run: echo $github.event.release.tag_name
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2-beta
         with:
@@ -38,12 +38,12 @@ jobs:
         with:
           repository: 'colin-delhalle/webextension-builder'
           path: $RELEASE_REL_PATH
-      - run: mkdir strawpoll-viewer/releases/$GITHUB_REF
+      - run: mkdir strawpoll-viewer/releases/$github.event.release.tag_name
         working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
-      - run: cp -R $GITHUB_WORKSPACE/$BUILD_REL_PATH/extension $GITHUB_WORKSPACE/$RELEASE_REL_PATH/releases/$GITHUB_REF
+      - run: cp -R $GITHUB_WORKSPACE/$BUILD_REL_PATH/extension $GITHUB_WORKSPACE/$RELEASE_REL_PATH/releases/$github.event.release.tag_name
       - run: git add .
         working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
-      - run: git commit -m "Source and zip file for relase $GITHUB_REF"
+      - run: git commit -m "Source and zip file for relase $github.event.release.tag_name"
         working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
       - run: git push
         working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
