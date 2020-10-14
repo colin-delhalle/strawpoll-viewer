@@ -37,13 +37,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: 'colin-delhalle/webextension-builder'
-          path: $RELEASE_REL_PATH
+          path: ${RELEASE_REL_PATH}
       - run: mkdir strawpoll-viewer/releases/${{ github.event.release.tag_name }}
-        working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
-      - run: cp -R $GITHUB_WORKSPACE/$BUILD_REL_PATH/extension $GITHUB_WORKSPACE/$RELEASE_REL_PATH/releases/${{ github.event.release.tag_name }}
+        working-directory: ${GITHUB_WORKSPACE}/${RELEASE_REL_PATH}
+      - run: cp -R ${GITHUB_WORKSPACE}/${BUILD_REL_PATH}/extension ${GITHUB_WORKSPACE}/${RELEASE_REL_PATH}/releases/${{ github.event.release.tag_name }}
       - run: git add .
-        working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
+        working-directory: ${GITHUB_WORKSPACE}/${RELEASE_REL_PATH}
       - run: git commit -m "Source and zip file for relase {{ $github.event.release.tag_name }}"
-        working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
+        working-directory: ${GITHUB_WORKSPACE}/${RELEASE_REL_PATH}
       - run: git push
-        working-directory: $GITHUB_WORKSPACE/$RELEASE_REL_PATH
+        working-directory: ${GITHUB_WORKSPACE}/${RELEASE_REL_PATH}
