@@ -26,16 +26,16 @@ jobs:
   push:
     needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: push
     steps:
       - uses: actions/download-artifact@v2.0.5
+        with:
+          name: release-${{ github.event.release.tag_name }}
+          path: ~/strawpoll-viewer/
       - uses: actions/checkout@v2
         with:
           repository: 'colin-delhalle/webextension-builder'
           token: ${{ secrets.PAT }}
       - run: |
           git add .
-          git ci -m "Release ${{ github.event.release.tag_name }}"
+          git commit -m "Release ${{ github.event.release.tag_name }}"
           git push
