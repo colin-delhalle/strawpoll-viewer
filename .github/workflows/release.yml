@@ -38,6 +38,7 @@ jobs:
         with:
           repository: 'colin-delhalle/webextension-builder'
           path: ${RELEASE_REL_PATH}
+          token: ${{ secrets.PAT }}
       - run: mkdir strawpoll-viewer/releases/${{ github.event.release.tag_name }}
         working-directory: ${GITHUB_WORKSPACE}/${RELEASE_REL_PATH}
       - run: cp -R ${GITHUB_WORKSPACE}/${BUILD_REL_PATH}/extension ${GITHUB_WORKSPACE}/${RELEASE_REL_PATH}/releases/${{ github.event.release.tag_name }}
