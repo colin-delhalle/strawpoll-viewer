@@ -30,13 +30,13 @@ jobs:
       - uses: actions/download-artifact@v2.0.5
         with:
           name: release-${{ github.event.release.tag_name }}
-          path: ~/strawpoll-viewer/
+          path: ~/strawpoll-viewer/release-${{ github.event.release.tag_name }}
       - uses: actions/checkout@v2
         with:
           repository: 'colin-delhalle/webextension-builder'
           token: ${{ secrets.PAT }}
       - run: |
-          cp -R ~/strawpoll-viewer/ .
+          cp -R ~/strawpoll-viewer/release-${{ github.event.release.tag_name }} .
           git config user.email "delhalle.colin@gmail.com"
           git config user.name "colin-delhalle"
           git add .
