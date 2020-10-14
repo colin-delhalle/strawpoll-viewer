@@ -36,6 +36,7 @@ jobs:
           repository: 'colin-delhalle/webextension-builder'
           token: ${{ secrets.PAT }}
       - run: |
+          cp -R ~/strawpoll-viewer/ .
           git config user.email "delhalle.colin@gmail.com"
           git config user.name "colin-delhalle"
           git add .
